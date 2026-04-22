@@ -1,0 +1,598 @@
+/* Remove Google Fonts import */
+
+/* Minimalist dark theme inspired by vinay.sh */
+html, body {
+    height: auto; /* Remove fixed height */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #1a1a1a; /* Darker background */
+    color: #e0e0e0; /* Slightly off-white text */
+    font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; /* Monospace font stack */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align blocks to the start (left) */
+    padding: 40px 20px; /* Add some padding */
+    min-height: calc(100vh - 80px); /* Ensure body takes full viewport height minus padding */
+    /* Center the content blocks horizontally within the viewport */
+    /* We can achieve this by applying margin auto to the children or changing align-items on body */
+    /* Let's try keeping align-items: center; for the blocks but ensure text inside is left-aligned */
+}
+
+nav {
+    width: 100%;
+    max-width: 600px; /* Limit width */
+    text-align: left; /* Align left */
+    padding: 0 0 20px 0; /* Padding below */
+    background-color: transparent; /* Remove nav background */
+}
+
+nav a {
+    color: #ff0000;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;
+    opacity: 1;
+}
+
+nav a:hover {
+    color: #ff4d4d; /* Lighter red */
+    transform: translateY(-2px);
+    opacity: 0.8; /* Slight fade effect */
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #ff4d4d; /* Match the hover color */
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.nav-emoji {
+    font-size: 2.2em; /* Double the size of nav link text (1.1em * 2) */
+    vertical-align: middle; /* Align emoji vertically with text */
+    line-height: 0; /* Prevent extra line height */
+    /* margin-right: 5px; */ /* Remove margin, spacing handled by next element */
+}
+
+#main-content {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #ffffff; /* Make all text white */
+}
+
+#main-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    padding-left: 0; /* Remove left padding to align with left edge */
+}
+
+#main-content li {
+    margin-bottom: 15px;
+    font-size: 0.9em; /* Make text smaller */
+    line-height: 1.4;
+}
+
+/* Ensure links are also white */
+#main-content a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#main-content a:hover {
+    color: #ff6b6b;
+}
+
+/* Make sure strong tags are also white */
+#main-content strong {
+    color: #ffffff;
+}
+
+/* Ensure links inside strong tags are white */
+#main-content strong a {
+    color: #ffffff;
+}
+
+#main-content strong a:hover {
+    color: #ff6b6b;
+}
+
+/* Center content ONLY on the homepage */
+.page-home #main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 70vh; /* Take up most of the viewport height */
+}
+
+/* Style h1 specifically (primarily for homepage) */
+h1 {
+    color: #61dafb !important;
+    font-size: 2.5em;
+    line-height: 1.4;
+    font-weight: normal;
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+    padding-bottom: 15px;
+    margin: 0 auto; /* Center the h1 */
+}
+
+/* Style ul/li specifically for About page */
+.page-about #main-content {
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 20px;
+}
+
+.page-about #main-content ul {
+    list-style: disc !important;
+    padding-left: 20px;
+    margin: 0;
+    max-width: none;
+}
+
+.page-about #main-content li {
+    color: #e0e0e0;
+    margin-bottom: 7px;
+    font-size: 0.85em;
+    line-height: 1.5;
+}
+
+/* Make bullet points white */
+.page-about #main-content ul li::marker {
+    color: #ffffff !important;
+}
+
+/* Make Olympus and podcast links green with immediate change */
+.page-about #main-content .highlight-link {
+    color: #4CAF50 !important;
+    text-decoration: none;
+}
+
+.page-about #main-content .highlight-link:hover {
+    color: #66bb6a !important; /* Lighter green */
+}
+
+/* Override any other styles */
+.page-about #main-content a.highlight-link strong {
+    color: #4CAF50 !important;
+}
+
+.page-about #main-content a.highlight-link:hover strong {
+    color: #66bb6a !important;
+}
+
+/* Style footer for homepage */
+.page-home footer {
+    width: auto; /* Change from 100% to auto */
+    max-width: none; /* Remove max-width constraint */
+    margin: 0; /* Remove auto margin */
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    text-align: left;
+}
+
+.page-home footer a {
+    display: block;
+    margin: 0 0 5px 0;
+    padding-left: 20px;
+}
+
+.page-home footer a::before {
+    display: block;
+}
+
+.page-home footer a:hover {
+    transform: translateX(10px);
+}
+
+footer {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    border-top: 1px solid #444;
+    padding-top: 15px;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #444, transparent);
+}
+
+footer h2 {
+    font-size: 0.85em;
+    color: #e0e0e0;
+    margin: 0 0 10px 0;
+    font-weight: bold;
+}
+
+footer a {
+    color: #64b5f6;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 3px;
+    transition: all 0.3s ease;
+    padding-left: 20px;
+    position: relative;
+    font-size: 0.85em;
+}
+
+footer a::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: #8ecffd;
+    transform: translateX(10px);
+}
+
+footer a:hover::before {
+    opacity: 1;
+    left: 5px;
+}
+
+/* Remove generic link styles, handled by nav/footer */
+/* a { ... } */
+/* a:hover { ... } */
+
+.about-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    padding: 50px 0;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 107, 107, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.about-section h2 {
+    color: #ffffff;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.about-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: #ff6b6b;
+}
+
+.about-section p {
+    color: #ffffff;
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.about-section p:hover {
+    opacity: 1;
+}
+
+.rotating-text {
+    color: #ff6b6b;
+    display: inline-block;
+    position: relative;
+    min-width: 100px;
+    text-align: center;
+    will-change: opacity, transform; /* Optimize for animations */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.rotating-text span {
+    position: absolute;
+    opacity: 0;
+    animation: fadeIn 0.1s ease forwards;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    will-change: opacity, transform;
+}
+
+/* Add this new rule for the Olympus link */
+.about-section a {
+    color: #4CAF50; /* Changed to green */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.about-section a:hover {
+    color: #4CAF50; /* Changed to green */
+}
+
+/* Make sure the link stays visible when inside strong tags */
+.about-section strong a {
+    color: #4CAF50; /* Changed to green */
+}
+
+.about-section strong a:hover {
+    color: #4CAF50; /* Changed to green */
+}
+
+/* Style for posts page */
+.page-posts #main-content {
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 20px;
+}
+
+.page-posts h1 {
+    color: #61dafb !important;
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    padding-left: 0;
+}
+
+.page-posts h1 strong {
+    font-weight: bold;
+}
+
+.page-posts .posts-list {
+    margin: 0;
+    padding: 0;
+}
+
+.page-posts .posts-list ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.page-posts .posts-list li {
+    margin-bottom: 10px;
+    color: #e0e0e0;
+    font-size: 0.9em;
+    list-style-position: outside;
+    display: list-item;
+}
+
+.page-posts .posts-list a {
+    color: #4CAF50 !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+    display: inline;
+}
+
+.page-posts .posts-list a:hover {
+    color: #4CAF50 !important;
+    text-decoration: underline;
+}
+
+/* Override any conflicting styles */
+#main-content ul {
+    list-style-type: disc !important;
+    padding-left: 20px !important;
+}
+
+#main-content li {
+    list-style-position: outside !important;
+    display: list-item !important;
+}
+
+#main-content a {
+    text-decoration: none !important;
+}
+
+#main-content a:hover {
+    text-decoration: underline !important;
+}
+
+/* Style for individual post pages */
+body.page-post {
+    font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+body.page-post #main-content {
+    width: auto;
+    max-width: 800px;
+    margin: 0;
+    padding: 20px;
+    text-align: left;
+}
+
+body.page-post h1 {
+    color: #4CAF50 !important;
+    font-size: 2em;
+    margin-bottom: 30px;
+    text-align: left;
+    font-weight: bold;
+}
+
+body.page-post .post-content {
+    color: #ffffff;
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: left;
+}
+
+body.page-post .post-content p {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Add arrow styling for the → symbol */
+.post-content p:contains("→") {
+    font-style: italic;
+}
+
+body.page-post .post-content strong {
+    color: #4CAF50 !important;
+    font-weight: bold;
+}
+
+.highlight-link {
+    color: #61dafb;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.highlight-link:hover {
+    color: #61dafb;
+    text-decoration: underline;
+}
+
+.post-date {
+    color: #888;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.post-date p {
+    margin: 5px 0;
+}
+
+.page-about .socials-section {
+    margin-top: 40px;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+}
+
+.page-about .socials-section h2 {
+    color: #e0e0e0;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.page-about .socials-section a {
+    color: #64b5f6;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+    padding-left: 20px;
+    position: relative;
+}
+
+.page-about .socials-section a:hover {
+    color: #8ecffd;
+    transform: translateX(10px);
+}
+
+/* Style footer for about page */
+.page-about footer {
+    width: auto;
+    max-width: none;
+    margin: 40px 0 0 0;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    text-align: left;
+}
+
+.page-about footer h2 {
+    font-size: 1.1em;
+    color: #e0e0e0;
+    margin: 0 0 15px 0;
+    font-weight: bold;
+}
+
+.page-about footer a {
+    color: #4CAF50 !important;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+    padding-left: 20px;
+    position: relative;
+}
+
+.page-about footer a:hover {
+    color: #4CAF50 !important;
+    transform: translateX(10px);
+}
+
+/* Update specific links in about section */
+.page-about #main-content a[href*="olympus"],
+.page-about #main-content a[href*="podcast"] {
+    color: #4CAF50 !important;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.page-about #main-content a[href*="olympus"]:hover,
+.page-about #main-content a[href*="podcast"]:hover {
+    color: #4CAF50 !important;
+}
+
+/* Update social links in about page */
+.page-about footer a {
+    color: #4CAF50 !important;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+    padding-left: 20px;
+    position: relative;
+}
+
+.page-about footer a:hover {
+    color: #4CAF50 !important;
+    transform: translateX(10px);
+}
+
+/* Remove any conflicting styles */
+.about-section a,
+.about-section strong a,
+.about-section a:hover,
+.about-section strong a:hover {
+    color: #4CAF50 !important;
+}
+
+/* Remove the old socials-section styles since we're using footer */
+.page-about .socials-section {
+    display: none;
+} 
